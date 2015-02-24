@@ -5,7 +5,7 @@ var enrouten = require('express-enrouten');
 var hbs = require('express-hbs');
 var multer  = require('multer');
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -15,11 +15,9 @@ app.use(express.static(__dirname + '/static'));
 
 app.use(enrouten({ directory: 'src/routes' }));
 
-app.use(function (req, res, next) {
-
-    res.status(404).render('404 error');
-
-});
+/*app.use(function (req, res, next) {
+	return res.status(404).render('404 error');
+});*/
 
 app.engine('hbs', hbs.express3());
 app.set('view engine', 'hbs');
